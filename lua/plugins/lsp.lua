@@ -1,20 +1,20 @@
 local keyMapper = require('utils.keyMapper').mapKey
 
--- return {
---   {
---      "williamboman/mason.nvim",
---       config = function()
---         require('mason').setup()
---       end
---   },
---   {
---     "williamboman/mason-lspconfig.nvim",
---     config = function()
---       require('mason-lspconfig').setup({
---         ensure_installed = { "lua_ls", "tsserver", "html" }
---       })
---     end
---   },
+return {
+  {
+     "williamboman/mason.nvim",
+      config = function()
+        require('mason').setup()
+      end
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require('mason-lspconfig').setup({
+        ensure_installed = { "lua_ls", "tsserver", "html" }
+      })
+    end
+  },
   {
     -- 코드문 유튜브
     -- "neovim/nvim-lspconfig",
