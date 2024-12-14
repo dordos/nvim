@@ -10,6 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+-- y로 시스템 클립보드 복사
 vim.opt.clipboard:append("unnamedplus")
 
 require("config.globals")
