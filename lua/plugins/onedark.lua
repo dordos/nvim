@@ -5,12 +5,8 @@ return {
   config = function()
     require('onedark').setup {
       style = 'warm',
-<<<<<<< HEAD
-=======
       transparent = true
->>>>>>> 00cd5bc (update)
     }
     vim.cmd([[colorscheme onedark]])
   end,
-  --eeeaaa
 }
