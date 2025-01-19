@@ -6,6 +6,7 @@ return {
     require('onedark').setup {
       style = 'warm',
       transparent = true
+      --test
     }
     vim.cmd([[colorscheme onedark]])
   end,
