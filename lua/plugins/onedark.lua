@@ -12,5 +12,5 @@ return {
     }
     vim.cmd([[colorscheme onedark]])
   end,
-  --eee
+  --eeeaaa
 }
