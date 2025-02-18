@@ -37,7 +37,9 @@ return {
             -- vim.api.nvim_set_hl(0, "@variable", { fg = "#dd9999", bg = nil, bold = false }),
             -- vim.api.nvim_set_hl(0, "@lsp.type.variable", { fg = "#dd9999", bg = nil, bold = false })
             -- constructor 색상
-            vim.api.nvim_set_hl(0, "@constructor", { fg = "#c27fd7", bg = nil, bold = false })
+            vim.api.nvim_set_hl(0, "@constructor", { fg = "#c27fd7", bg = nil, bold = false }),
+            vim.cmd([[highlight NeoTreeMessage guifg=#646568 guibg=NONE]]) -- 사이드바 (hidden items 글자 색상)
+
           }
         },
         indent = { enable = true },
