@@ -33,8 +33,8 @@ require("config.globals")
 require("config.keymaps")
 require("config.options")
 
-
 local plugins = "plugins"
 local opts = {}
+
 
 require("lazy").setup(plugins, opts)
