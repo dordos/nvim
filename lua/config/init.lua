@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- 클립보드 활성화
+-- -- 클립보드 활성화
 vim.opt.clipboard = 'unnamedplus'
 -- 삭제 명령어가 클립보드에 영향을 주지 않도록 설정
 vim.keymap.set({ 'n', 'v', 'o' }, 'd', '"_d', { noremap = true })
@@ -29,12 +29,30 @@ vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
 vim.keymap.set('n', 's', '"_s', { noremap = true })
 vim.keymap.set('n', 'S', '"_S', { noremap = true })
 
+require("config.options")
 require("config.globals")
 require("config.keymaps")
-require("config.options")
+
+-- 색상 테마가 로드될 때마다 실행될 오토커맨드를 설정합니다.
+local augroup = vim.api.nvim_create_augroup("MyLineNrCustomColors", { clear = true })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  group = augroup,
+  callback = function()
+    vim.api.nvim_set_hl(0, "LineNr", {
+      fg = "#E5C07B",
+      bg = "NONE"
+    })
+    vim.api.nvim_set_hl(0, "CursorLineNr", {
+      fg = "#BE5046",
+      bg = "NONE",
+      bold = true
+    })
+  end,
+})
 
 local plugins = "plugins"
 local opts = {}
-
 
 require("lazy").setup(plugins, opts)

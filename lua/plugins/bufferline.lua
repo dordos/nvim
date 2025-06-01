@@ -34,7 +34,11 @@ return {
         info_selected = { bg = '#21252b', bold = true },
         diagnostic_selected = { bg = '#21252b', bold = true },
       }
-
     }
+    for i = 1, 9 do
+      vim.keymap.set('n', string.format('<Leader>%d', i), function()
+        require('bufferline').go_to_buffer(i, true)
+      end, { desc = string.format('Go to bufferline entry %d', i), silent = true })
+    end
   end
 }

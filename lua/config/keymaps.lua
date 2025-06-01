@@ -25,3 +25,7 @@ mapKey('<leader>h', ':nohlsearch<CR>')
 -- indent
 mapKey('<', '<gv', 'v')
 mapKey('>', '>gv', 'v')
+
+-- tab 이동
+vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>', { desc = 'Next buffer/tab' })
+vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>', { desc = 'Previous buffer/tab' })

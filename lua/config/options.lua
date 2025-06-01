@@ -18,10 +18,11 @@ opt.number = true
 opt.relativenumber = true -- 상대적 라인번호
 opt.termguicolors = true
 opt.signcolumn = "yes"    -- 브레이크 포인트 기둥 활성화 옵션
+opt.cursorline = true
 
 -- etc
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.cmdheight = 1
-opt.scrolloff = 10
+opt.scrolloff = 10 -- 화면이 내려갈때 커서도 함께 내려감
 opt.mouse:append("a")
