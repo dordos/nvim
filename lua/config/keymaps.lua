@@ -6,9 +6,6 @@ vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
 
 
 
---; -> : 로 변경
-vim.keymap.set('n', ';', ':')
-
 -- Neotree toggle
 mapKey('<leader>e', ':Neotree toggle<CR>')
 
@@ -29,3 +26,6 @@ mapKey('>', '>gv', 'v')
 -- tab 이동
 vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>', { desc = 'Next buffer/tab' })
 vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>', { desc = 'Previous buffer/tab' })
+
+--창 닫기
+mapKey('<leader>q', '<cmd>bdelete<CR>', 'n', { desc = 'Close current buffer' })
