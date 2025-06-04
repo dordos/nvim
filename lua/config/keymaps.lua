@@ -29,3 +29,10 @@ vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>', { desc = 'Previous buffer/t
 
 --창 닫기
 mapKey('<leader>q', '<cmd>bdelete<CR>', 'n', { desc = 'Close current buffer' })
+
+-- 파일 저장 관련
+mapKey('<Leader>w', '<cmd>write<CR>', 'n', { desc = 'Save current file' })
+mapKey('<Leader>wa', '<cmd>wall<CR>', 'n', { desc = 'Save all files' })
+
+-- 창 분할 관련
+mapKey('<Leader>vs', '<cmd>vsplit<CR>', 'n', { desc = 'Split window vertically' })
