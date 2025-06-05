@@ -9,9 +9,8 @@ return {
   },
   config = function()
     require("neo-tree").setup({
-      window = {
-        width = 30
-      },
+      width = 30, -- 사용자 지정 너비
+
     })
   end,
 }
