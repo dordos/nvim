@@ -1,9 +1,7 @@
 local mapKey = require("utils.keyMapper").mapKey
 
-
 -- esc
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
-
 
 
 -- Neotree toggle
@@ -15,7 +13,7 @@ mapKey('<C-j>', '<C-w>j') -- Down
 mapKey('<C-k>', '<C-w>k') -- U:p
 mapKey('<C-l>', '<C-w>l') -- Right
 
--- clear search highlights
+--하이라이트 끄기
 mapKey('<leader>h', ':nohlsearch<CR>')
 
 
@@ -36,3 +34,8 @@ mapKey('<Leader>wa', '<cmd>wall<CR>', 'n', { desc = 'Save all files' })
 
 -- 창 분할 관련
 mapKey('<Leader>vs', '<cmd>vsplit<CR>', 'n', { desc = 'Split window vertically' })
+
+
+-- 검색시 위치 이동방지
+mapKey('*', '*N', 'n', { desc = 'Search forward without jumping' })
+mapKey('#', '#N', 'n', { desc = 'Search backward without jumping' })

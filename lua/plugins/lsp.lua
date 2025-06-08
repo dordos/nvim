@@ -34,6 +34,11 @@ return {
         update_in_insert = false,
         -- 심각도별로 정렬
         severity_sort = true,
+        float = {
+          border = "rounded", -- 팝업창에 둥근 테두리를 추가합니다.
+          source = "if_many", -- 에러 소스(예: eslint)를 보여줍니다.
+          max_width = 80,     -- 팝업창의 최대 너비를 80자로 제한합니다.
+        },
       })
 
       lspconfig.lua_ls.setup({})
@@ -41,8 +46,9 @@ return {
       lspconfig.eslint.setup({})
 
       keyMapper("K", vim.lsp.buf.hover)
-      keyMapper("gd", vim.lsp.buf.definition)
+      keyMapper("gd", require('telescope.builtin').lsp_definitions)
       keyMapper("<leader>ca", vim.lsp.buf.code_action)
+      keyMapper("gl", vim.diagnostic.open_float)
     end,
   },
   {

@@ -12,6 +12,7 @@ opt.wrap = false
 opt.incsearch = true  --검색되는 즉시 알려줌
 opt.ignorecase = true -- 대소문자 구분하지 않고
 opt.smartcase = true  -- 검색어에 대소문자 포함하는 것을 구분함
+opt.wrapscan = false  -- 검색이 파일 끝/처음에 도달해도 순환하지 않음
 
 -- visual
 opt.number = true

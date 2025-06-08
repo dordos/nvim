@@ -29,6 +29,7 @@ vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
 vim.keymap.set('n', 's', '"_s', { noremap = true })
 vim.keymap.set('n', 'S', '"_S', { noremap = true })
 
+
 require("config.options")
 require("config.globals")
 require("config.keymaps")
@@ -48,6 +49,17 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       fg = "#BE5046",
       bg = "NONE",
       bold = true
+    })
+    vim.api.nvim_set_hl(0, "CurSearch", {
+      fg = "#282c34",
+      bg = "#E06C75",
+      bold = true,
+    })
+    vim.api.nvim_set_hl(0, "IncSearch", {
+      -- CurSearch와 동일하게 설정하여 통일감 부여
+      fg = "#282c34",
+      bg = "#E06C75", -- CurSearch와 같은 주황색 계열
+      bold = true,
     })
   end,
 })
