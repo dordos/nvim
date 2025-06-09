@@ -16,10 +16,37 @@ return {
       highlight = {
         backdrop = false,
       },
+      search = {
+        exclude = {
+          "neo-tree",
+          function(win)
+            local buf = vim.api.nvim_win_get_buf(win)
+            return vim.bo[buf].filetype == "neo-tree"
+          end,
+        },
+      },
+
     })
     -- 하이라이트 색상 수정
-    vim.api.nvim_set_hl(0, "FlashMatch", { fg = "#ffffff", bg = "#ff5f5f", bold = true }) --일치하는 텍스트
-    -- vim.api.nvim_set_hl(0, "FlashCurrent", { fg = "#000000", bg = "#ffff00", bold = true }) --현재 선택된 텍스트
-    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = "#5f87ff", bold = true }) -- 단축키 라벨
+
+    vim.api.nvim_set_hl(0, "FlashMatch", {
+      fg = "#ffffff",
+      bg = "#005f87",
+      bold = true,
+    })
+
+    vim.api.nvim_set_hl(0, "FlashCurrent", {
+      fg = "#ffffff",
+      bg = "#9a5f6f",
+      bold = true,
+      underline = true,
+    })
+
+    vim.api.nvim_set_hl(0, "FlashLabel", {
+      fg = "#000000",
+      bg = "#5fff87", -- 밝은 연두
+      bold = true,
+      italic = true,
+    })
   end,
 }

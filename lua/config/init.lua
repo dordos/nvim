@@ -41,6 +41,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   group = augroup,
   callback = function()
+    -- line 관련 색상
     vim.api.nvim_set_hl(0, "LineNr", {
       fg = "#E5C07B",
       bg = "NONE"
@@ -50,15 +51,23 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       bg = "NONE",
       bold = true
     })
+
+
+    -- 검색 관련 색상
+    vim.api.nvim_set_hl(0, "Search", {
+      fg = "#ffffff",
+      bg = "#005f87",
+      bold = true,
+    })
+
     vim.api.nvim_set_hl(0, "CurSearch", {
-      fg = "#282c34",
+      fg = "#ffffff",
       bg = "#E06C75",
       bold = true,
     })
     vim.api.nvim_set_hl(0, "IncSearch", {
-      -- CurSearch와 동일하게 설정하여 통일감 부여
-      fg = "#282c34",
-      bg = "#E06C75", -- CurSearch와 같은 주황색 계열
+      fg = "#ffffff",
+      bg = "#9a5f6f",
       bold = true,
     })
   end,

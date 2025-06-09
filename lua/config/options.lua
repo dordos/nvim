@@ -25,5 +25,5 @@ opt.cursorline = true
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.cmdheight = 1
-opt.scrolloff = 10 -- 화면이 내려갈때 커서도 함께 내려감
+opt.scrolloff = 999 -- 화면이 내려갈때 커서도 함께 내려감
 opt.mouse:append("a")
