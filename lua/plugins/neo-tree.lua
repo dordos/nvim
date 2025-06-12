@@ -11,6 +11,13 @@ return {
     require("neo-tree").setup({
       width = 30, -- 사용자 지정 너비
 
+      window = {
+        mappings = {
+          ["l"] = "open",       -- 디렉토리/파일 열기
+          ["h"] = "close_node", -- 디렉토리 닫기
+        }
+      }
+
     })
   end,
 }
