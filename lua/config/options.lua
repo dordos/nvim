@@ -27,12 +27,3 @@ opt.fileencoding = "utf-8"
 opt.cmdheight = 1
 opt.scrolloff = 19 -- 화면이 내려갈때 커서도 함께 내려감
 opt.mouse:append("a")
-
-
--- neo-tree 창에서는 scrolloff 비활성화
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "neo-tree",
-  callback = function()
-    opt.scrolloff = 0
-  end,
-})
