@@ -52,6 +52,28 @@ vim.keymap.set("n", "<Leader>wh", function()
 end, { desc = "Split window height 50%" })
 
 
+-- 오른쪽 창을 줄여서 현재(가운데) 창을 넓힘
+vim.keymap.set("n", "<A-L>", function()
+  local right = vim.fn.winnr("l")
+  if right ~= vim.fn.winnr() then
+    vim.cmd("wincmd l")
+    vim.cmd("vertical resize -3")
+    vim.cmd("wincmd h")
+  end
+end, { desc = "Expand current window by shrinking right neighbor" })
+
+-- 왼쪽 창을 줄여서 현재 창을 넓힘
+vim.keymap.set("n", "<A-H>", function()
+  local left = vim.fn.winnr("h")
+  if left ~= vim.fn.winnr() then
+    vim.cmd("wincmd h")
+    vim.cmd("vertical resize -3")
+    vim.cmd("wincmd l")
+  end
+end, { desc = "Expand current window by shrinking left neighbor" })
+
+
+
 -- 검색시 위치 이동방지
 mapKey('*', '*N', 'n', { desc = 'Search forward without jumping' })
 mapKey('#', '#N', 'n', { desc = 'Search backward without jumping' })
