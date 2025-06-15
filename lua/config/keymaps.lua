@@ -21,10 +21,6 @@ mapKey('<leader>h', ':nohlsearch<CR>')
 mapKey('<', '<gv', 'v')
 mapKey('>', '>gv', 'v')
 
--- tab 이동
-vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>', { desc = 'Next buffer/tab' })
-vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>', { desc = 'Previous buffer/tab' })
-
 --창 닫기
 mapKey('<leader>q', '<cmd>bdelete<CR>', 'n', { desc = 'Close current buffer' })
 
@@ -34,6 +30,26 @@ mapKey('<Leader>wa', '<cmd>wall<CR>', 'n', { desc = 'Save all files' })
 
 -- 창 분할 관련
 mapKey('<Leader>vs', '<cmd>vsplit<CR>', 'n', { desc = 'Split window vertically' })
+mapKey('<leader>hs', "<cmd>split<CR>", 'n', { desc = "Split horizontally" })
+
+
+--resize
+vim.keymap.set("n", "<A-h>", "<Cmd>vertical resize +3<CR>", { desc = "Resize window left" })
+vim.keymap.set("n", "<A-l>", "<Cmd>vertical resize -3<CR>", { desc = "Resize window right" })
+vim.keymap.set("n", "<A-j>", "<Cmd>resize -3<CR>", { desc = "Resize window down" })
+vim.keymap.set("n", "<A-k>", "<Cmd>resize +3<CR>", { desc = "Resize window up" })
+
+--resize width 1/2
+vim.keymap.set("n", "<Leader>wv", function()
+  local total = vim.o.columns
+  vim.cmd("vertical resize " .. math.floor(total / 2))
+end, { desc = "Split window width 50%" })
+
+--resize height 1/2
+vim.keymap.set("n", "<Leader>wh", function()
+  local total = vim.o.lines - vim.o.cmdheight
+  vim.cmd("resize " .. math.floor(total / 2))
+end, { desc = "Split window height 50%" })
 
 
 -- 검색시 위치 이동방지
