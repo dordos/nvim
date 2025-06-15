@@ -34,6 +34,8 @@ require("config.options")
 require("config.globals")
 require("config.keymaps")
 
+
+
 -- 색상 테마가 로드될 때마다 실행될 오토커맨드를 설정합니다.
 local augroup = vim.api.nvim_create_augroup("MyLineNrCustomColors", { clear = true })
 

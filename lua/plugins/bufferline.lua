@@ -9,9 +9,10 @@ return {
         diagnostics = "nvim_lsp",
         separator_style = "slant",
         show_buffer_close_icons = true,
-        show_close_icon = false,
-        always_show_bufferline = true,
+        show_close_icon = false,       -- 오른쪽 끝 X 버튼 숨김
+        always_show_bufferline = true, -- 버퍼가 하나여도 표시
       },
+
       highlights = {
         fill = { bg = 'NONE' },
         --선택되지 않은 탭
