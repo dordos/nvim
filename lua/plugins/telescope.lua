@@ -5,39 +5,62 @@ vim.opt.splitright = true
 -- 수직 분할시 아래쪽으로
 vim.opt.splitbelow = true
 
+-- 기존 Telescope 관련 설정을 모두 이 코드로 교체하세요.
 return {
-  {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local builtin = require("telescope.builtin")
-      mapKey('<leader>ff', builtin.find_files)
-      mapKey('<leader>fg', builtin.live_grep)
-      mapKey('<leader>fb', builtin.buffers)
-      mapKey('<leader>fh', builtin.help_tags)
-    end,
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    config = function()
-      require('telescope').setup({
-        defaults = {
-          mappings = {
-            -- 삽입 모드(Insert Mode)에서 Esc를 누르면 바로 창이 닫히도록 설정
-            i = {
-              ["<Esc>"] = require("telescope.actions").close,
-            },
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.5',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  config = function()
+    local telescope = require('telescope')
+    local builtin = require("telescope.builtin")
+    local mapKey = require("utils.keyMapper").mapKey
+
+    -- Telescope 기본 설정
+    telescope.setup({
+      defaults = {
+
+        -- 이 부분이 검색창을 하단에 배치하는 설정입니다.
+        layout_config = {
+          prompt_position = "top",
+          height = 0.5,
+          width = 0.95,
+          preview_width = 0.45,
+          anchor = "S",
+        },
+        prompt_prefix = "🔍 ",
+        -- 이 부분이 목록을 최근 사용 순서(MRU)로 정렬하는 기본 소터를 지정합니다.
+        sorting_strategy = "ascending",
+
+        mappings = {
+          i = {
+            ["<Esc>"] = require("telescope.actions").close,
           },
         },
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
+      },
+      pickers = {
+        -- 버퍼(buffers) 피커에 대한 개별 설정입니다.
+        buffers = {
+          -- 버퍼 목록을 항상 최근 사용(MRU) 순으로 정렬합니다.
+          sort_mru = true,
+          -- 이미 정렬되어 있으므로 기본 소터를 사용하지 않습니다.
+          sorter = require('telescope.sorters').get_generic_fuzzy_sorter({}),
+        },
+      },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+            -- 드롭다운 테마에 대한 추가 설정
           }
         }
-      })
-      require("telescope").load_extension("ui-select")
-    end
-  }
+      }
+    })
+
+    -- telescope-ui-select 확장을 사용한다면 로드합니다.
+    -- require("telescope").load_extension("ui-select")
+
+    mapKey('<leader>ff', builtin.find_files)
+    mapKey('<leader>fg', builtin.live_grep)
+    mapKey('<leader>fb', builtin.buffers)
+    mapKey('<leader>fh', builtin.help_tags)
+  end,
 }
