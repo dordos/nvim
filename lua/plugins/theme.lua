@@ -110,11 +110,18 @@ return {
     vim.g.everforest_transparent_background = 1 -- 0: 비활성화, 1: 활성화
 
     -- 기타 설정 (선택 사항)
-    vim.g.everforest_background = 'medium' -- hard, medium, soft
+    vim.g.everforest_background = 'soft' -- hard, medium, soft
     -- vim.g.everforest_cursor = 'orange' -- 커서 색상 변경
 
     -- 컬러 스킴 적용
     vim.cmd.colorscheme 'everforest'
+
+    -- 검색 텍스트 색상
+    vim.api.nvim_set_hl(0, 'TelescopeMatching', {
+      fg = '#e69875', -- 글자색 변경
+      bold = true,    -- 굵게
+      -- italic = true -- 기울임꼴 (선택 사항)
+    })
 
     -- 색상 덮어쓰기
     -- vim.api.nvim_set_hl(0, "@function.call.tsx", { fg = "#88C0D0" })
