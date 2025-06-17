@@ -118,14 +118,17 @@ return {
 
     -- 검색 텍스트 색상
     vim.api.nvim_set_hl(0, 'TelescopeMatching', {
-      fg = '#e69875', -- 글자색 변경
+      -- fg = '#e69875', -- 글자색 변경
+      fg = '#e06c75', -- 글자색 변경
       bold = true,    -- 굵게
       -- italic = true -- 기울임꼴 (선택 사항)
     })
 
     -- 색상 덮어쓰기
-    -- vim.api.nvim_set_hl(0, "@function.call.tsx", { fg = "#88C0D0" })
-    vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", { fg = "#88C0D0" })
-    vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#7a98ac" })
+    vim.api.nvim_set_hl(0, "@function.method.tsx", { fg = "#75A2C8" })
+    vim.api.nvim_set_hl(0, "@function.method.call.tsx", { fg = "#75A2C8" })
+    vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", { fg = "#75A2C8" })
+    vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#8984af" })
+    vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#DEA24F" })
   end,
 }
