@@ -1,19 +1,19 @@
-return {
-  "navarasu/onedark.nvim",
-  priority = 1000,
-  lazy = false,
-  config = function()
-    require('onedark').setup {
-      style = 'warm',
-      transparent = true,
-      highlights = {
-        Conceal = { fg = "#c0c0c0" },
-      },
-    }
-    vim.cmd([[colorscheme onedark]])
-  end,
-}
-
+-- return {
+--   "navarasu/onedark.nvim",
+--   priority = 1000,
+--   lazy = false,
+--   config = function()
+--     require('onedark').setup {
+--       style = 'warm',
+--       transparent = true,
+--       highlights = {
+--         Conceal = { fg = "#c0c0c0" },
+--       },
+--     }
+--     vim.cmd([[colorscheme onedark]])
+--   end,
+-- }
+--
 -- return {
 --   "sainnhe/gruvbox-material",
 --   lazy = false,
@@ -23,13 +23,11 @@ return {
 --     -- 기본 설정 옵션 --
 --     -------------------
 --     -- 1. 배경 설정 (배경 대비)
---     vim.g.gruvbox_material_background = 'medium' -- 'hard', 'medium', 'soft' 중 선택
+--     vim.g.gruvbox_material_background = 'soft' -- 'hard', 'medium', 'soft' 중 선택
 --
 --     -- 2. 전경색 설정 (색상 팔레트)
 --     vim.g.gruvbox_material_foreground = 'material' -- 'material', 'mix', 'original' 중 선택
 --
---     -- 3. 성능 개선 설정
---     vim.g.gruvbox_material_better_performance = 1
 --
 --     ----------------------
 --     -- 스타일 관련 설정 --
@@ -48,7 +46,7 @@ return {
 --     -- -- UI 관련 설정 --
 --     -- ---------------------
 --     -- -- 7. 투명 배경 설정
---     vim.g.gruvbox_material_transparent_background = 1 -- 1: 활성화, 0: 비활성화
+--     vim.g.gruvbox_material_transparent_background = 0 -- 1: 활성화, 0: 비활성화
 --     --
 --     -- -- 8. 상태 줄 배경 설정
 --     -- vim.g.gruvbox_material_statusline_background = 'default'  -- 'default', 'transparent'
@@ -103,3 +101,24 @@ return {
 --     vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#7a98ac" }) --파란색
 --   end,
 -- }
+--
+return {
+  'sainnhe/everforest',
+  -- priority = 1000, -- 다른 플러그인보다 먼저 로드
+  config = function()
+    -- 투명도 설정을 여기서 합니다
+    vim.g.everforest_transparent_background = 1 -- 0: 비활성화, 1: 활성화
+
+    -- 기타 설정 (선택 사항)
+    vim.g.everforest_background = 'medium' -- hard, medium, soft
+    -- vim.g.everforest_cursor = 'orange' -- 커서 색상 변경
+
+    -- 컬러 스킴 적용
+    vim.cmd.colorscheme 'everforest'
+
+    -- 색상 덮어쓰기
+    -- vim.api.nvim_set_hl(0, "@function.call.tsx", { fg = "#88C0D0" })
+    vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", { fg = "#88C0D0" })
+    vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#7a98ac" })
+  end,
+}
