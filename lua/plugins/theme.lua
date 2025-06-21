@@ -125,14 +125,29 @@ return {
       -- italic = true -- 기울임꼴 (선택 사항)
     })
 
-    -- 색상 덮어쓰기
-    vim.api.nvim_set_hl(0, "@function.method.tsx", { fg = "#75A2C8" })
-    vim.api.nvim_set_hl(0, "@function.method.call.tsx", { fg = "#75A2C8" })
-    vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", { fg = "#75A2C8" })
-    vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#afaf87" })
-    vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#af87af" })
+    -- 기본 색상에서 추가 변경 색
+    -- #E67E80 --purple / purpleItalic
+    -- #75A2C8 -- function.method / .call.tsx / function.typescriptreact
+    -- #af87af -- type.parameter.typescriptreact
 
-    vim.api.nvim_set_hl(0, "purple", { fg = "#E67E80" })
-    vim.api.nvim_set_hl(0, "PurpleItalic", { fg = "#E67E80" })
+
+    -- 색상 덮어쓰기 (컬러 추출해서 연하게 처리)
+    vim.api.nvim_set_hl(0, "red", { fg = "#C6646A" })
+    vim.api.nvim_set_hl(0, "orange", { fg = "#C6735D" })
+    vim.api.nvim_set_hl(0, "yellow", { fg = "#C1A26F" })
+    vim.api.nvim_set_hl(0, "YellowItalic", { fg = "#C1A26F" })
+    vim.api.nvim_set_hl(0, "Special", { fg = "#C1A26F" })
+    vim.api.nvim_set_hl(0, "green", { fg = "#8BA46B" })
+    vim.api.nvim_set_hl(0, "blue", { fg = "#73A09A" })
+    vim.api.nvim_set_hl(0, "aqua", { fg = "#5C9771" })
+    vim.api.nvim_set_hl(0, "purple", { fg = "#C6646A" })
+    vim.api.nvim_set_hl(0, "PurpleItalic", { fg = "#C6646A" })
+    vim.api.nvim_set_hl(0, "fg", { fg = "#BFB19A" })
+
+    vim.api.nvim_set_hl(0, "@function.method.tsx", { fg = "#598AA8" })
+    vim.api.nvim_set_hl(0, "@function.method.call.tsx", { fg = "#598AA8" })
+    vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", { fg = "#598AA8" })
+    vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#afaf87" })
+    vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#977497" })
   end,
 }
