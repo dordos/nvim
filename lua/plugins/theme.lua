@@ -111,14 +111,15 @@ return {
 
     -- 기타 설정 (선택 사항)
     vim.g.everforest_background = 'soft' -- hard, medium, soft
-    -- vim.g.everforest_cursor = 'orange' -- 커서 색상 변경
+
+    -- 커서 색상 변경
+    -- vim.g.everforest_cursor = 'orange'
 
     -- 컬러 스킴 적용
     vim.cmd.colorscheme 'everforest'
 
     -- 검색 텍스트 색상
     vim.api.nvim_set_hl(0, 'TelescopeMatching', {
-      -- fg = '#e69875', -- 글자색 변경
       fg = '#e06c75', -- 글자색 변경
       bold = true,    -- 굵게
       -- italic = true -- 기울임꼴 (선택 사항)
@@ -128,7 +129,10 @@ return {
     vim.api.nvim_set_hl(0, "@function.method.tsx", { fg = "#75A2C8" })
     vim.api.nvim_set_hl(0, "@function.method.call.tsx", { fg = "#75A2C8" })
     vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", { fg = "#75A2C8" })
-    vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#8984af" })
-    vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#DEA24F" })
+    vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#afaf87" })
+    vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#af87af" })
+
+    vim.api.nvim_set_hl(0, "purple", { fg = "#E67E80" })
+    vim.api.nvim_set_hl(0, "PurpleItalic", { fg = "#E67E80" })
   end,
 }
