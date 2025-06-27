@@ -8,12 +8,11 @@ vim.opt.splitbelow = true
 -- 기존 Telescope 관련 설정을 모두 이 코드로 교체하세요.
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.5',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  branch = 'master',
+  dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-ui-select.nvim' },
   config = function()
     local telescope = require('telescope')
     local builtin = require("telescope.builtin")
-    local mapKey = require("utils.keyMapper").mapKey
 
     -- Telescope 기본 설정
     telescope.setup({
@@ -24,7 +23,6 @@ return {
           prompt_position = "top",
           height = 0.5,
           width = 0.95,
-          preview_width = 0.45,
           anchor = "S",
         },
         prompt_prefix = "🔍 ",
@@ -55,8 +53,7 @@ return {
       }
     })
 
-    -- telescope-ui-select 확장을 사용한다면 로드합니다.
-    -- require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("ui-select")
 
     mapKey('<leader>ff', builtin.find_files)
     mapKey('<leader>fg', builtin.live_grep)
