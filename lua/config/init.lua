@@ -29,6 +29,10 @@ vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
 vim.keymap.set('n', 's', '"_s', { noremap = true })
 vim.keymap.set('n', 'S', '"_S', { noremap = true })
 
+-- vscode에 option + up,down과 같음 (한줄 이동)
+vim.keymap.set("x", "J", ":move '>+1<CR>gv=gv")
+vim.keymap.set("x", "K", ":move '<-2<CR>gv=gv")
+
 
 require("config.options")
 require("config.globals")
