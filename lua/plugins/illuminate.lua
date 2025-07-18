@@ -1,4 +1,3 @@
--- vim-illuminate 플러그인 설정 (lazy.nvim 사용 시)
 return {
   'RRethy/vim-illuminate',
   -- 선택 사항: 기본 설정을 변경하려면 여기에 추가
