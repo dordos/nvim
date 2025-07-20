@@ -33,6 +33,13 @@ vim.keymap.set('n', 'S', '"_S', { noremap = true })
 vim.keymap.set("x", "J", ":move '>+1<CR>gv=gv")
 vim.keymap.set("x", "K", ":move '<-2<CR>gv=gv")
 
+-- nvim nomal 모드에서 한글일 경우 영어로 바꿔줌 (brew im-select 설치 실행함수)
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.fn.system("im-select com.apple.keylayout.ABC")
+  end
+})
+
 
 require("config.options")
 require("config.globals")
