@@ -43,7 +43,9 @@ return {
 
       lspconfig.lua_ls.setup({})
       lspconfig.html.setup({})
-      lspconfig.eslint.setup({})
+      lspconfig.eslint.setup({
+        workingDirectories = { mode = "auto" }
+      })
 
       keyMapper("K", vim.lsp.buf.hover)
       keyMapper("gd", require('telescope.builtin').lsp_definitions)
