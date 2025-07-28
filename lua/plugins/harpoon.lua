@@ -3,47 +3,55 @@ return {
   branch = "harpoon2",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
   },
   config = function()
     local harpoon = require("harpoon")
 
-    -- 북마크 자동 저장 설정
     harpoon:setup({
       settings = {
         save_on_toggle = true,
         sync_on_ui_close = true,
         key = function()
-          return vim.loop.cwd() -- 현재 작업 디렉토리 기준으로 저장
+          return vim.loop.cwd()
         end,
       },
     })
 
-    -- Telescope 확장 기능 로딩
     require("telescope").load_extension("harpoon")
 
     local map = vim.keymap.set
-    local list = harpoon:list()
 
-    -- 현재 파일을 북마크에 추가
+    -- Add current file
     map("n", "<leader>a", function()
-      list:append()
+      harpoon:list():append()
     end, { desc = "Harpoon: Add current file" })
 
-    -- Telescope Harpoon UI
+
+    -- Quick select
+    for i = 1, 9 do
+      map("n", "<leader>" .. i, function()
+        harpoon:list():select(i)
+      end, { desc = "Harpoon: Go to file " .. i })
+    end
+
     map("n", "<leader>hh", function()
-      require("telescope").extensions.harpoon.marks()
-    end, { desc = "Harpoon: Show bookmarks in Telescope" })
+      harpoon.ui:toggle_quick_menu(harpoon:list())
+    end)
 
-    -- 등록된 파일 1~4번 빠르게 이동
-    map("n", "<leader>1", function() list:select(1) end, { desc = "Harpoon: Go to file 1" })
-    map("n", "<leader>2", function() list:select(2) end, { desc = "Harpoon: Go to file 2" })
-    map("n", "<leader>3", function() list:select(3) end, { desc = "Harpoon: Go to file 3" })
-    map("n", "<leader>4", function() list:select(4) end, { desc = "Harpoon: Go to file 4" })
+    -- 덮어쓰기 함수
+    local function set_slot(slot)
+      local list = harpoon:list()
+      if list.items[slot] then
+        list:remove_at(slot)
+      end
+      list:append()
+    end
 
-    -- 북마크 초기화
-    map("n", "<leader>hx", function()
-      list:clear()
-    end, { desc = "Harpoon: Clear all bookmarks" })
+    -- 저장/덮어쓰기 키맵
+    for i = 1, 9 do
+      map("n", "<leader>a" .. i, function()
+        set_slot(i)
+      end, { desc = "Harpoon: Overwrite slot " .. i })
+    end
   end,
 }
