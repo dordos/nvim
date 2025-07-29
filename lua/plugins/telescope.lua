@@ -13,6 +13,7 @@ return {
   config = function()
     local telescope = require('telescope')
     local builtin = require("telescope.builtin")
+    local actions = require("telescope.actions")
 
     -- Telescope 기본 설정
     telescope.setup({
@@ -32,7 +33,12 @@ return {
         mappings = {
           i = {
             ["<Esc>"] = require("telescope.actions").close,
+            ["<C-d>"] = actions.delete_buffer,
           },
+          n = {
+            ["<C-d>"] = actions.delete_buffer, -- ⬅️ 버퍼 삭제 (normal 모드)
+          },
+
         },
       },
       pickers = {

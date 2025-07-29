@@ -2,7 +2,7 @@ local mapKey = require("utils.keyMapper").mapKey
 
 -- esc
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
-
+-- vim.keymap.set("i", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- Neotree toggle
 mapKey('<leader>e', ':Neotree toggle<CR>')
