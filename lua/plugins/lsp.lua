@@ -11,7 +11,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "html", "eslint" },
+        ensure_installed = { "lua_ls", "ts_ls", "html", "eslint", "emmet_ls", "tailwindcss" },
       })
     end,
   },
@@ -45,6 +45,10 @@ return {
       lspconfig.html.setup({})
       lspconfig.eslint.setup({
         workingDirectories = { mode = "auto" }
+      })
+      lspconfig.tailwindcss.setup({
+        root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "postcss.config.js",
+          "package.json", ".git"),
       })
 
       keyMapper("K", vim.lsp.buf.hover)
