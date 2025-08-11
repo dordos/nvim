@@ -1,5 +1,4 @@
 local keyMapper = require("utils.keyMapper").mapKey
-
 return {
   {
     "williamboman/mason.nvim",
@@ -11,7 +10,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "html", "eslint", "emmet_ls", "tailwindcss" },
+        ensure_installed = { "lua_ls", "ts_ls", "html", "eslint", "tailwindcss" },
       })
     end,
   },
@@ -42,7 +41,6 @@ return {
       })
 
       lspconfig.lua_ls.setup({})
-      lspconfig.html.setup({})
       lspconfig.eslint.setup({
         workingDirectories = { mode = "auto" }
       })
@@ -56,11 +54,5 @@ return {
       keyMapper("gl", vim.diagnostic.open_float)
       keyMapper("<leader>ca", vim.lsp.buf.code_action)
     end,
-  },
-  {
-    "pmizio/typescript-tools.nvim",
-    -- 향상된 ts 서버 lsp
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opt = {}
   },
 }
