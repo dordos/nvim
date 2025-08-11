@@ -36,15 +36,14 @@ return {
           -- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           -- ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(), --자동완성 창 열기
-          ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true })
         }),
         -- autocompletion sources
         sources = cmp.config.sources({
-          { name = "nvim_lsp", },                       -- lsp
-          { name = "buffer",   max_item_count = 5 },    -- text within current buffer
-          { name = "path",     max_item_count = 3 },    -- file system paths
-          { name = "luasnip",  max_item_count = 3 },    -- snippets
+          { name = "nvim_lsp", },                    -- lsp
+          { name = "buffer",   max_item_count = 5 }, -- text within current buffer
+          { name = "path",     max_item_count = 3 }, -- file system paths
+          { name = "luasnip",  max_item_count = 3 }, -- snippets
         }),
       })
     end,
