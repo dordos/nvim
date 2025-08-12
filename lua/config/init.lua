@@ -43,7 +43,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   end
 })
 
-
 require("config.options")
 require("config.globals")
 require("config.keymaps")
