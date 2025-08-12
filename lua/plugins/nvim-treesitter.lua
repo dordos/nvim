@@ -3,6 +3,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
+      -- treesitter install로 추가 안되는 파일들
+      vim.filetype.add({
+        pattern = {
+          [".*%.env.*"] = "sh", -- .env, .env.local, .env.production 등 전부 bash 하이라이트
+        },
+      })
       local configs = require("nvim-treesitter.configs")
       configs.setup({
         ensure_installed = {
@@ -28,6 +34,7 @@ return {
           'sql',
           'regex',
           'swift',
+          'bash',
         },
         sync_install = false,
         auto_install = true,

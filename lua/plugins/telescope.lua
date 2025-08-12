@@ -63,8 +63,10 @@ return {
 
     mapKey('<leader>ff', builtin.find_files)
     mapKey("<leader>fa", function()
-      builtin.find_files({ hidden = true })
-    end, "n", { desc = "Find hidden files" })
+      builtin.find_files({
+        find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!.git/*" }
+      })
+    end, "n", { desc = "Find absolutely all files" })
     mapKey('<leader>fg', builtin.live_grep)
     mapKey('<leader>fb', builtin.buffers)
     mapKey('<leader>fh', builtin.help_tags)
