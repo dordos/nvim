@@ -16,7 +16,6 @@ mapKey('<C-l>', '<C-w>l') -- Right
 --하이라이트 끄기
 mapKey('<leader>h', ':nohlsearch<CR>')
 
-
 -- indent
 mapKey('<', '<gv', 'v')
 mapKey('>', '>gv', 'v')
