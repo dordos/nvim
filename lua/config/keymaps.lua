@@ -31,6 +31,22 @@ mapKey('<Leader>wa', '<cmd>wall<CR>', 'n', { desc = 'Save all files' })
 mapKey('<Leader>vs', '<cmd>vsplit<CR>', 'n', { desc = 'Split window vertically' })
 mapKey('<leader>hs', "<cmd>split<CR>", 'n', { desc = "Split horizontally" })
 
+--이전 버퍼, 다음 버퍼로 이동
+-- 이전 버퍼로 이동
+vim.keymap.set('n', '<leader>o', '<Cmd>bprevious<CR>', { desc = '이전 버퍼 (bprevious)' })
+-- 다음 버퍼로 이동
+vim.keymap.set('n', '<leader>i', '<Cmd>bnext<CR>', { desc = '다음 버퍼 (bnext)' })
+-- 모든 버퍼 닫기
+vim.keymap.set('n', '<leader>bda', function()
+  local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+  local current = vim.fn.bufnr('%')
+  for _, buf in ipairs(bufs) do
+    if buf.bufnr ~= current then
+      vim.cmd('bdelete ' .. buf.bufnr)
+    end
+  end
+  print("모든 버퍼를 닫았습니다.")
+end, { desc = '모든 다른 버퍼 닫기' })
 
 --resize width 1/2
 vim.keymap.set("n", "<Leader>wv", function()
