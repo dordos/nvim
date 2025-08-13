@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 -- -- 클립보드 활성화
 vim.opt.clipboard = 'unnamedplus'
 -- 삭제 명령어가 클립보드에 영향을 주지 않도록 설정
