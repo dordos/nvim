@@ -48,6 +48,21 @@ vim.keymap.set('n', '<leader>bda', function()
   print("모든 버퍼를 닫았습니다.")
 end, { desc = '모든 다른 버퍼 닫기' })
 
+
+-- 이미지,pdf 파일 등 미리보기
+vim.api.nvim_create_user_command("QuickLook", function()
+  local file = vim.fn.expand("%:p")
+  if file ~= "" and vim.fn.filereadable(file) == 1 then
+    os.execute("qlmanage -p " .. vim.fn.shellescape(file) .. " >/dev/null 2>&1")
+  else
+    print("이미지 파일이 열려있지 않습니다.")
+  end
+end, {})
+
+vim.keymap.set("n", "<leader>p", ":QuickLook<CR>", { noremap = true, silent = true })
+
+
+
 --resize width 1/2
 vim.keymap.set("n", "<Leader>wv", function()
   local total = vim.o.columns
