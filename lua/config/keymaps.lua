@@ -53,13 +53,18 @@ end, { desc = '모든 다른 버퍼 닫기' })
 vim.api.nvim_create_user_command("QuickLook", function()
   local file = vim.fn.expand("%:p")
   if file ~= "" and vim.fn.filereadable(file) == 1 then
-    os.execute("qlmanage -p " .. vim.fn.shellescape(file) .. " >/dev/null 2>&1")
+    if file:match("%.svg$") then
+      os.execute("open -a Safari " .. vim.fn.shellescape(file))
+    else
+      os.execute("open -a Preview " .. vim.fn.shellescape(file))
+    end
   else
     print("이미지 파일이 열려있지 않습니다.")
   end
 end, {})
 
 vim.keymap.set("n", "<leader>p", ":QuickLook<CR>", { noremap = true, silent = true })
+
 
 
 
