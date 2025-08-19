@@ -35,7 +35,7 @@ return {
         mapping = cmp.mapping.preset.insert({
           -- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           -- ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(), --자동완성 창 열기
+          -- ["<C-Space>"] = cmp.mapping.complete(), --자동완성 창 열기
           ["<CR>"] = cmp.mapping.confirm({ select = true })
         }),
         -- autocompletion sources
