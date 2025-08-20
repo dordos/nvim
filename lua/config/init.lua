@@ -25,7 +25,10 @@ vim.keymap.set('n', 'cc', '"_cc', { noremap = true })
 
 -- 기타 삭제 명령어가 클립보드에 영향을 주지 않도록 설정
 vim.keymap.set({ 'n', 'v' }, 'x', '"_x', { noremap = true })
-vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
+
+-- 대문자 X는 클립보드에 복사 됨
+-- vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
+
 vim.keymap.set('n', 's', '"_s', { noremap = true })
 vim.keymap.set('n', 'S', '"_S', { noremap = true })
 
