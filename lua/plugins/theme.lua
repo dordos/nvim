@@ -146,7 +146,9 @@ return {
 
     vim.api.nvim_set_hl(0, "@function.method.tsx", { fg = "#598AA8" })
     vim.api.nvim_set_hl(0, "@function.method.call.tsx", { fg = "#598AA8" })
+    vim.api.nvim_set_hl(0, "@function.method.call.typescript", { fg = "#598AA8" })
     vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", { fg = "#598AA8" })
+    vim.api.nvim_set_hl(0, "@lsp.type.function.typescript", { fg = "#598AA8" })
     vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { fg = "#afaf87" })
     vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#977497" })
   end,
