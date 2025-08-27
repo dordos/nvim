@@ -79,10 +79,10 @@ vim.keymap.set("n", "<Leader>wv", function()
 end, { desc = "Split window width 50%" })
 
 --resize height 1/2
-vim.keymap.set("n", "<Leader>wh", function()
-  local total = vim.o.lines - vim.o.cmdheight
-  vim.cmd("resize " .. math.floor(total / 2))
-end, { desc = "Split window height 50%" })
+-- vim.keymap.set("n", "<Leader>wh", function()
+--   local total = vim.o.lines - vim.o.cmdheight
+--   vim.cmd("resize " .. math.floor(total / 2))
+-- end, { desc = "Split window height 50%" })
 
 -- 검색시 위치 이동방지
 mapKey('*', '*N', 'n', { desc = 'Search forward without jumping' })
