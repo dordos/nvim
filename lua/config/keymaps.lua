@@ -13,6 +13,10 @@ mapKey('<C-j>', '<C-w>j') -- Down
 mapKey('<C-k>', '<C-w>k') -- U:p
 mapKey('<C-l>', '<C-w>l') -- Right
 
+-- 위아래 반페이지 이동시 커서 가운데 위치
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+
 --하이라이트 끄기
 mapKey('<leader>h', ':nohlsearch<CR>')
 
