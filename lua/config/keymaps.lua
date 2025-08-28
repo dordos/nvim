@@ -87,3 +87,43 @@ end, { desc = "Split window width 50%" })
 -- 검색시 위치 이동방지
 mapKey('*', '*N', 'n', { desc = 'Search forward without jumping' })
 mapKey('#', '#N', 'n', { desc = 'Search backward without jumping' })
+
+
+
+-- -- 클립보드 활성화
+vim.opt.clipboard = 'unnamedplus'
+-- 삭제 명령어가 클립보드에 영향을 주지 않도록 설정
+vim.keymap.set({ 'n', 'v', 'o' }, 'd', '"_d', { noremap = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'D', '"_D', { noremap = true })
+vim.keymap.set('n', 'dd', '"_dd', { noremap = true })
+
+-- 변경 명령어가 클립보드에 영향을 주지 않도록 설정
+vim.keymap.set({ 'n', 'v', 'o' }, 'c', '"_c', { noremap = true })
+vim.keymap.set({ 'n', 'v', 'o' }, 'C', '"_C', { noremap = true })
+vim.keymap.set('n', 'cc', '"_cc', { noremap = true })
+
+-- 기타 삭제 명령어가 클립보드에 영향을 주지 않도록 설정
+vim.keymap.set({ 'n', 'v' }, 'x', '"_x', { noremap = true })
+
+-- 대문자 X는 클립보드에 복사 됨
+-- vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
+
+vim.keymap.set('n', 's', '"_s', { noremap = true })
+vim.keymap.set('n', 'S', '"_S', { noremap = true })
+
+-- 레지스터를 덮어쓰지 않도록 비주얼 모드에서 p 재설정
+vim.keymap.set("x", "p", "\"_dP", { noremap = true, silent = true })
+
+-- vscode에 option + up,down과 같음 (한줄 이동)
+vim.keymap.set("x", "J", ":move '>+1<CR>gv=gv")
+vim.keymap.set("x", "K", ":move '<-2<CR>gv=gv")
+
+-- nvim nomal 모드에서 한글일 경우 영어로 바꿔줌 (brew im-select 설치 실행함수)
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.fn.system("im-select com.apple.keylayout.ABC")
+  end
+})
+
+
+
