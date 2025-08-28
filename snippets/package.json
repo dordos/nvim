@@ -1,0 +1,24 @@
+{
+  "name": "my-custom-snippets",
+  "version": "1.0.0",
+  "description": "내 커스텀 스니펫 모음",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "javascript",
+          "typescript",
+          "javascriptreact",
+          "typescriptreact",
+          "vue",
+          "html",
+          "css",
+          "json",
+          "markdown",
+          "lua"
+        ],
+        "path": "./all.json"
+      }
+    ]
+  }
+}

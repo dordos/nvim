@@ -20,12 +20,14 @@ return {
       local cmp = require("cmp")
       local luasnip = require("luasnip")
 
-      -- load snippets
+      -- friendly-snippets 로드
       require("luasnip.loaders.from_vscode").lazy_load()
 
+      -- 커스텀 스니펫 로드 (여러 방법 시도)
+      local custom_path = vim.fn.stdpath("config") .. "/snippets"
       require("luasnip.loaders.from_vscode").lazy_load({
-        paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
-        override_priority = 1000,
+        paths = { custom_path },
+        override_priority = 2000
       })
 
       cmp.setup({

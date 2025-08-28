@@ -1,7 +1,0 @@
-{
-  "My Final Test Snippet": {
-    "prefix": "mytest",
-    "body": ["이 스니펫이 보인다면, 성공입니다ssss!", "$0"],
-    "description": "사용자 스니펫 최종 테스트"
-  }
-}

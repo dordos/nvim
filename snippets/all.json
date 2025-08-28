@@ -1,0 +1,11 @@
+{
+  "Export Default Function": {
+    "prefix": "ednf",
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE}}($2) {",
+      "  $0",
+      "}"
+    ],
+    "description": "Export default function with filename"
+  }
+}
