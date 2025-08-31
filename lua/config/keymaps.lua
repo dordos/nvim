@@ -106,7 +106,7 @@ vim.keymap.set('n', 'cc', '"_cc', { noremap = true })
 vim.keymap.set({ 'n', 'v' }, 'x', '"_x', { noremap = true })
 
 -- 대문자 X는 클립보드에 복사 됨
--- vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { noremap = true })
+vim.keymap.set('v', 'X', 'x', { noremap = true })
 
 vim.keymap.set('n', 's', '"_s', { noremap = true })
 vim.keymap.set('n', 'S', '"_S', { noremap = true })
@@ -124,6 +124,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     vim.fn.system("im-select com.apple.keylayout.ABC")
   end
 })
-
-
-
