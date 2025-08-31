@@ -19,7 +19,7 @@ opt.number = true
 opt.relativenumber = true -- 상대적 라인번호
 opt.termguicolors = true
 opt.signcolumn = "yes"    -- 브레이크 포인트 기둥 활성화 옵션
-opt.cursorline = true
+opt.cursorline = false
 
 -- etc
 opt.encoding = "utf-8"
