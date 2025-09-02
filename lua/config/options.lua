@@ -19,7 +19,7 @@ opt.number = true
 opt.relativenumber = true -- 상대적 라인번호
 opt.termguicolors = true
 opt.signcolumn = "yes"    -- 브레이크 포인트 기둥 활성화 옵션
-opt.cursorline = false
+opt.cursorline = true
 
 -- etc
 opt.encoding = "utf-8"
@@ -44,6 +44,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       bg = "NONE",
       bold = true
     })
+    vim.api.nvim_set_hl(0, "CursorLine", {
+      bg = "NONE" -- 배경 투명
+    })
+
 
 
     -- 검색 관련 색상
@@ -63,14 +67,5 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       bg = "#9a5f6f",
       bold = true,
     })
-  end,
-})
-
-
--- vim.opt.cursorline = false (이게 없으면 lualine플러그인 때문에 자동으로 true로 바뀜)
-vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "VimEnter" }, {
-  pattern = "*",
-  callback = function()
-    vim.opt.cursorline = false
   end,
 })
