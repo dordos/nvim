@@ -51,6 +51,7 @@ return {
 
       keyMapper("K", vim.lsp.buf.hover)
       keyMapper("gd", require('telescope.builtin').lsp_definitions)
+      keyMapper("gr", require('telescope.builtin').lsp_references) -- 참조 찾기
       keyMapper("gl", vim.diagnostic.open_float)
       keyMapper("<leader>ca", vim.lsp.buf.code_action)
     end,
