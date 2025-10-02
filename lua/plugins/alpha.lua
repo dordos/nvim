@@ -34,5 +34,4 @@ return {
 
     alpha.setup(dashboard.opts)
   end
-  --aa
 };
